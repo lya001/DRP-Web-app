@@ -10,9 +10,15 @@ import Foundation
 struct Question: Equatable {
 	
 	private var question: String
+	private var time: Date
+	
+	public init(_ question: String, atTime time: Date) {
+		self.question = question
+		self.time = time
+	}
 	
 	public init(_ question: String) {
-		self.question = question
+		self.init(question, atTime: Date())
 	}
 	
 	static func ==(lhs: Question, rhs: Question) -> Bool {
@@ -25,5 +31,9 @@ struct Question: Equatable {
 	
 	func getQuestion() -> String {
 		return self.question
+	}
+	
+	func getTime() -> Date {
+		return self.time
 	}
 }

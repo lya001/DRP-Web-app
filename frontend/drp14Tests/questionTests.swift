@@ -30,6 +30,12 @@ class questionTests: XCTestCase {
 		question.update(question: questionA)
 		XCTAssertEqual(question.getQuestion(), questionA, "It should be question A!")
     }
+	
+	func testTimeOfPostedQuestion() throws {
+		let time = Date()
+		let question = Question("random", atTime: time)
+		XCTAssertEqual(question.getTime(), time, "It should be at \(time)")
+	}
 
 	/*
     func testPerformanceExample() throws {
