@@ -1,13 +1,13 @@
 build-job:
   stage: build
   script:
-    - xcodebuild clean -project drp14.xcodeproj -scheme drp14 | xcpretty
+    - xcodebuild clean -project frontend/drp14.xcodeproj -scheme drp14 | xcpretty
     - echo "Build done!"
 
 test-job1:
   stage: test
   script:
-    - xcodebuild test -project drp14.xcodeproj -scheme drp14 | xcpretty -s
+    - xcodebuild test -project frontend/drp14.xcodeproj -scheme drp14 -destination 'platform=iOS Simulator,name=iPhone 12 Pro,OS=14.4' | xcpretty -s
     - echo "This job tests something"
 
 test-job2:
