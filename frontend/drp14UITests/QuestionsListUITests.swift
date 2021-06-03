@@ -1,13 +1,13 @@
 //
-//  drp14UITests.swift
-//  drp14UITests
+//  QuestionsListUITests.swift
+//  drp14
 //
 //  Created by Aris Zhu Yi Qing on 03/06/2021.
 //
 
 import XCTest
 
-class drp14UITests: XCTestCase {
+class QuestionsListUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,14 +22,22 @@ class drp14UITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testInitializeQuestionList() throws {
         let app = XCUIApplication()
         app.launch()
 
 		let questionsList = app.tables["Questions list"]
 		XCTAssertEqual(questionsList.cells.count, 0, "There should be no questions when started")
     }
+	
+	func testAddQuestions() throws {
+		let app = XCUIApplication()
+		app.launch()
+		
+		let questionList = app.tables["Questions list"]
+		app.buttons["Add Question"].tap()
+		XCTAssertEqual(questionList.cells.count, 1, "There should be one question after pressing the \"Add Question\" button.")
+	}
 
 	/*
     func testLaunchPerformance() throws {

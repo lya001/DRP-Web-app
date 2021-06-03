@@ -1,6 +1,6 @@
 //
-//  questionStoreTests.swift
-//  drp14Tests
+//  QuestionStoreTests.swift
+//  drp14
 //
 //  Created by Aris Zhu Yi Qing on 03/06/2021.
 //
@@ -8,7 +8,7 @@
 import XCTest
 @testable import drp14
 
-class questionStoreTests: XCTestCase {
+class QuestionStoreTests: XCTestCase {
 	
 	let questionStore = QuestionStore()
 
