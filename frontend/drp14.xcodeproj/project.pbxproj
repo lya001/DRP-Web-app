@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B91C7C7F2668DFCB002111E3 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C7E2668DFCB002111E3 /* QAView.swift */; };
+		B91C7C842668DFE1002111E3 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C832668DFE1002111E3 /* UserView.swift */; };
 		B9B73C222668D2BA00A1FD4A /* drp14App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B73C212668D2BA00A1FD4A /* drp14App.swift */; };
 		B9B73C242668D2BA00A1FD4A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B73C232668D2BA00A1FD4A /* MainView.swift */; };
 		B9B73C262668D2BD00A1FD4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B73C252668D2BD00A1FD4A /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B91C7C7E2668DFCB002111E3 /* QAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
+		B91C7C832668DFE1002111E3 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		B9B73C1E2668D2BA00A1FD4A /* drp14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drp14.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B73C212668D2BA00A1FD4A /* drp14App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drp14App.swift; sourceTree = "<group>"; };
 		B9B73C232668D2BA00A1FD4A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				B9B73C252668D2BD00A1FD4A /* Assets.xcassets */,
 				B9B73C2A2668D2BD00A1FD4A /* Info.plist */,
 				B9B73C272668D2BD00A1FD4A /* Preview Content */,
+				B91C7C7E2668DFCB002111E3 /* QAView.swift */,
+				B91C7C832668DFE1002111E3 /* UserView.swift */,
 			);
 			path = drp14;
 			sourceTree = "<group>";
@@ -261,6 +267,8 @@
 			files = (
 				B9B73C242668D2BA00A1FD4A /* MainView.swift in Sources */,
 				B9B73C222668D2BA00A1FD4A /* drp14App.swift in Sources */,
+				B91C7C7F2668DFCB002111E3 /* QAView.swift in Sources */,
+				B91C7C842668DFE1002111E3 /* UserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

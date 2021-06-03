@@ -9,8 +9,16 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+		TabView {
+			QAView()
+				.tabItem {
+					Label("Posts", systemImage: "bubble.middle.bottom.fill")
+				}
+			UserView()
+				.tabItem {
+					Label("User", systemImage: "person.circle.fill")
+				}
+		}
     }
 }
 
