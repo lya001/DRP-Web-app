@@ -4,3 +4,6 @@
 *~
 *.swp
 \#*#
+
+# ignore user settings
+xcshareddata/
