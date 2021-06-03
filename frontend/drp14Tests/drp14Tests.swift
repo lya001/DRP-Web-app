@@ -17,17 +17,27 @@ class drp14Tests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+	
+	func testCreateQuestion() throws {
+		let questionA = "This is a question"
+		let question = Question(questionA)
+		XCTAssertEqual(question.getQuestion(), questionA, "It should be question A!")
+	}
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testUpdateQuestion() throws {
+		let questionA = "This is another question"
+		var question = Question("random")
+		question.update(question: questionA)
+		XCTAssertEqual(question.getQuestion(), questionA, "It should be question A!")
     }
 
+	/*
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
+	*/
 
 }
