@@ -16,7 +16,14 @@ struct QAView: View {
 			List(self.questionStore.questions) { question in
 				QuestionRowView(question: question)
 			}
-			.navigationTitle("QAView")
+			.navigationTitle("Questions")
+			.toolbar(content: {
+				Button(action: {
+					questionStore.add(question: "New question")
+				}, label: {
+					Text("Add Question")
+				})
+			})
 			.accessibility(identifier: "Questions list")
 		}
     }
