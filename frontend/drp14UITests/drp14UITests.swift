@@ -27,10 +27,11 @@ class drp14UITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+		let questionsList = app.tables["Questions list"]
+		XCTAssertEqual(questionsList.cells.count, 0, "There should be no questions when started")
     }
 
+	/*
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
@@ -39,4 +40,5 @@ class drp14UITests: XCTestCase {
             }
         }
     }
+	*/
 }

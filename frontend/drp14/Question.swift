@@ -19,6 +19,10 @@ struct Question: Equatable, Identifiable {
 		self.time = time
 	}
 	
+	public init(_ question: String, atTime time: Date) {
+		self.init(question, atTime: time, withID: UUID())
+	}
+	
 	public init(_ question: String) {
 		self.init(question, atTime: Date(), withID: UUID())
 	}

@@ -18,6 +18,8 @@
 		B91C7CAA2668FF6D002111E3 /* questionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CA92668FF6D002111E3 /* questionStoreTests.swift */; };
 		B91C7CB8266910B0002111E3 /* QuestionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CB7266910B0002111E3 /* QuestionRowView.swift */; };
 		B91C7CBC2669152C002111E3 /* QuestionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CB7266910B0002111E3 /* QuestionRowView.swift */; };
+		B91C7CC626691D45002111E3 /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CA32668FD27002111E3 /* QuestionStore.swift */; };
+		B91C7CD126691FD0002111E3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C882668E73C002111E3 /* Question.swift */; };
 		B9B73C222668D2BA00A1FD4A /* drp14App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B73C212668D2BA00A1FD4A /* drp14App.swift */; };
 		B9B73C242668D2BA00A1FD4A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B73C232668D2BA00A1FD4A /* MainView.swift */; };
 		B9B73C262668D2BD00A1FD4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B73C252668D2BD00A1FD4A /* Assets.xcassets */; };
@@ -307,8 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B91C7CC626691D45002111E3 /* QuestionStore.swift in Sources */,
 				B91C7CBC2669152C002111E3 /* QuestionRowView.swift in Sources */,
 				B9B73C3F2668D2BD00A1FD4A /* drp14UITests.swift in Sources */,
+				B91C7CD126691FD0002111E3 /* Question.swift in Sources */,
 				B91C7C8E2668E78B002111E3 /* UserView.swift in Sources */,
 				B91C7C922668E78E002111E3 /* QAView.swift in Sources */,
 			);
