@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
+	
+	@StateObject var questionStore = QuestionStore()
+	
     var body: some View {
 		TabView {
 			QAView()
+				.environmentObject(questionStore)
 				.tabItem {
 					Label("Posts", systemImage: "bubble.middle.bottom.fill")
 				}
