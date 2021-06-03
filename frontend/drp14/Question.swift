@@ -7,18 +7,20 @@
 
 import Foundation
 
-struct Question: Equatable {
+struct Question: Equatable, Identifiable {
 	
+	var id: UUID
 	private var question: String
 	private var time: Date
 	
-	public init(_ question: String, atTime time: Date) {
+	public init(_ question: String, atTime time: Date, withID id: UUID) {
+		self.id = id
 		self.question = question
 		self.time = time
 	}
 	
 	public init(_ question: String) {
-		self.init(question, atTime: Date())
+		self.init(question, atTime: Date(), withID: UUID())
 	}
 	
 	static func ==(lhs: Question, rhs: Question) -> Bool {
