@@ -1,15 +1,23 @@
-build-job:
-  stage: build
-  script:
-    - echo "Hello, $GITLAB_USER_LOGIN!"
+stages:   
+  - 🔨 build
+  - ✅ unit/UI tests 
+  - 🚀 deploy
 
-test-job1:
-  stage: test
+build:
+  stage: 🔨 build
   script:
-    - echo "This job tests something"
+    - xcodebuild clean -project frontend/drp14.xcodeproj -scheme drp14 | xcbeautify
+    - echo "Build done!"
 
-test-job2:
-  stage: test
+frontend_tests:
+  stage: ✅ unit/UI tests 
+  script:
+    - cd frontend
+    - bundle exec fastlane tests
+    - echo "Finish testing unit tests and UI tests of the iOS part"
+
+backend_tests:
+  stage: ✅ unit/UI tests 
   script:
     - echo "This job tests something, but takes more time than test-job1."
     - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
@@ -17,7 +25,7 @@ test-job2:
     - sleep 20
 
 deploy-prod:
-  stage: deploy
+  stage: 🚀 deploy
   script:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
 
