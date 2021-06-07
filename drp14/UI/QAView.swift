@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct QAView: View {
 	
 	@EnvironmentObject var questionStore: QuestionStore
+	var dbRef: DatabaseReference! = Database.database().reference()
 	
     var body: some View {
 		NavigationView {
@@ -19,7 +21,11 @@ struct QAView: View {
 			.navigationTitle("Questions")
 			.toolbar(content: {
 				Button(action: {
-					questionStore.add(question: "New question")
+					// TODO: should have an interface to write question and save it
+					// create a new question and save it
+					let question = Question("New question")
+					questionStore.add(question: question.getQuestion())
+					question.writeToDB()
 				}, label: {
 					Text("Add Question")
 				})

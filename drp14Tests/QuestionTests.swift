@@ -5,6 +5,7 @@
 //  Created by Aris Zhu Yi Qing on 03/06/2021.
 //
 
+import Firebase
 import XCTest
 @testable import drp14
 
@@ -35,6 +36,25 @@ class QuestionTests: XCTestCase {
 		let time = Date()
 		let question = Question("random", atTime: time)
 		XCTAssertEqual(question.getTime(), time, "It should be at \(time)")
+	}
+	
+	func testAddQuestionToDB() throws {
+		let questionA = "This is a question"
+		let time = Date()
+		let question = Question(questionA, atTime: time)
+		
+		// add the question to the database
+		question.writeToDB()
+		
+		// query the question and it should be able to be found in the database
+		Database.database().reference().child("questions/\(question.id)").observeSingleEvent(of: .value) { (snapshot) in
+			let value = snapshot.value as? NSDictionary
+			XCTAssertEqual(value!["question"] as! String, questionA)
+			XCTAssertEqual(value!["time"] as! Double, time.timeIntervalSince1970)
+			
+			// clean up the test -- remove the question from the database
+			Database.database().reference().child("questions/\(question.id)").removeValue()
+		}
 	}
 
 	/*

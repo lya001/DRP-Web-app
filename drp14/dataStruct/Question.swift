@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Question: Equatable, Identifiable {
 	
@@ -41,5 +42,12 @@ struct Question: Equatable, Identifiable {
 	
 	func getTime() -> Date {
 		return self.time
+	}
+	
+	func writeToDB() {
+		Database.database().reference().child("questions/\(id.uuidString)").setValue([
+			"question": question,
+			"time": time.timeIntervalSince1970
+		])
 	}
 }
