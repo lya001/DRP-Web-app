@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,13 +12,10 @@
 		B91C7C842668DFE1002111E3 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C832668DFE1002111E3 /* UserView.swift */; };
 		B91C7C892668E73C002111E3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C882668E73C002111E3 /* Question.swift */; };
 		B91C7C8A2668E73C002111E3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C882668E73C002111E3 /* Question.swift */; };
-		B91C7C8E2668E78B002111E3 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C832668DFE1002111E3 /* UserView.swift */; };
-		B91C7C922668E78E002111E3 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C7E2668DFCB002111E3 /* QAView.swift */; };
 		B91C7CA42668FD27002111E3 /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CA32668FD27002111E3 /* QuestionStore.swift */; };
 		B91C7CA52668FD27002111E3 /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CA32668FD27002111E3 /* QuestionStore.swift */; };
 		B91C7CAA2668FF6D002111E3 /* QuestionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CA92668FF6D002111E3 /* QuestionStoreTests.swift */; };
 		B91C7CB8266910B0002111E3 /* QuestionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CB7266910B0002111E3 /* QuestionRowView.swift */; };
-		B91C7CBC2669152C002111E3 /* QuestionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CB7266910B0002111E3 /* QuestionRowView.swift */; };
 		B91C7CC626691D45002111E3 /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CA32668FD27002111E3 /* QuestionStore.swift */; };
 		B91C7CD126691FD0002111E3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C882668E73C002111E3 /* Question.swift */; };
 		B9B73C222668D2BA00A1FD4A /* drp14App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B73C212668D2BA00A1FD4A /* drp14App.swift */; };
@@ -145,17 +142,13 @@
 		B9B73C202668D2BA00A1FD4A /* drp14 */ = {
 			isa = PBXGroup;
 			children = (
-				B9D45B6C266E47D900F25B49 /* GoogleService-Info.plist */,
 				B9B73C212668D2BA00A1FD4A /* drp14App.swift */,
-				B9B73C232668D2BA00A1FD4A /* MainView.swift */,
+				B9D45B90266E4D8900F25B49 /* dataStruct */,
+				B9D45B89266E4D6600F25B49 /* UI */,
 				B9B73C252668D2BD00A1FD4A /* Assets.xcassets */,
 				B9B73C2A2668D2BD00A1FD4A /* Info.plist */,
+				B9D45B6C266E47D900F25B49 /* GoogleService-Info.plist */,
 				B9B73C272668D2BD00A1FD4A /* Preview Content */,
-				B91C7C7E2668DFCB002111E3 /* QAView.swift */,
-				B91C7C832668DFE1002111E3 /* UserView.swift */,
-				B91C7C882668E73C002111E3 /* Question.swift */,
-				B91C7CA32668FD27002111E3 /* QuestionStore.swift */,
-				B91C7CB7266910B0002111E3 /* QuestionRowView.swift */,
 			);
 			path = drp14;
 			sourceTree = "<group>";
@@ -187,6 +180,26 @@
 			path = drp14UITests;
 			sourceTree = "<group>";
 		};
+		B9D45B89266E4D6600F25B49 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B9B73C232668D2BA00A1FD4A /* MainView.swift */,
+				B91C7C7E2668DFCB002111E3 /* QAView.swift */,
+				B91C7C832668DFE1002111E3 /* UserView.swift */,
+				B91C7CB7266910B0002111E3 /* QuestionRowView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B9D45B90266E4D8900F25B49 /* dataStruct */ = {
+			isa = PBXGroup;
+			children = (
+				B91C7C882668E73C002111E3 /* Question.swift */,
+				B91C7CA32668FD27002111E3 /* QuestionStore.swift */,
+			);
+			path = dataStruct;
+			sourceTree = "<group>";
+		};
 		E39C0652B2A0DF36214BB53C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +210,6 @@
 				455A978D8A0DDDC8DAAC6BA1 /* Pods-drp14Tests.debug.xcconfig */,
 				D2181EC3E81BB2D10C48DF67 /* Pods-drp14Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -467,11 +479,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B91C7CC626691D45002111E3 /* QuestionStore.swift in Sources */,
-				B91C7CBC2669152C002111E3 /* QuestionRowView.swift in Sources */,
 				B9B73C3F2668D2BD00A1FD4A /* QuestionsListUITests.swift in Sources */,
 				B91C7CD126691FD0002111E3 /* Question.swift in Sources */,
-				B91C7C8E2668E78B002111E3 /* UserView.swift in Sources */,
-				B91C7C922668E78E002111E3 /* QAView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
