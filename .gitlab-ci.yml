@@ -1,23 +1,23 @@
 stages:   
   - 🔨 build
-  - ✅ unit/UI tests 
+  - ✅ tests 
   - 🚀 deploy
 
 build:
   stage: 🔨 build
   script:
-    - xcodebuild clean -project frontend/drp14.xcodeproj -scheme drp14 | xcbeautify
+    - xcodebuild clean -workspace drp14.xcworkspace -scheme drp14 | xcbeautify
+    - xcodebuild clean -workspace drp14.xcworkspace -scheme drp14 | xcbeautify
     - echo "Build done!"
 
 frontend_tests:
-  stage: ✅ unit/UI tests 
+  stage: ✅ tests 
   script:
-    - cd frontend
     - bundle exec fastlane tests
     - echo "Finish testing unit tests and UI tests of the iOS part"
 
 backend_tests:
-  stage: ✅ unit/UI tests 
+  stage: ✅ tests 
   script:
     - echo "This job tests something, but takes more time than test-job1."
     - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
