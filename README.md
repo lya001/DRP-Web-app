@@ -1,3 +1,5 @@
 # General Info
 
-iOS's implementation is under this folder.
+### Tech stack
+frontend: iOS SwiftUI
+backend: Firebase
