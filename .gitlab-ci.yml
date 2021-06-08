@@ -7,7 +7,7 @@ build:
   stage: 🔨 build
   script:
     - xcodebuild clean -workspace drp14.xcworkspace -scheme drp14 | xcbeautify
-    - xcodebuild clean -workspace drp14.xcworkspace -scheme drp14 | xcbeautify
+    - xcodebuild build -workspace drp14.xcworkspace -scheme drp14 | xcbeautify
     - echo "Build done!"
 
 frontend_tests:
