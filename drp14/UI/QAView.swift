@@ -85,7 +85,7 @@ struct QAView: View {
 								 message: Text("You must log in in order to ask questions. Please go to \"User\" tab to log in."),
 								 dismissButton: .cancel())
 				})
-				.accessibility(identifier: "Questions list")
+				.accessibility(identifier: "questions list")
 			}
 		}
     }
