@@ -45,12 +45,13 @@ struct UserView: View {
 						
 						HStack {
 							Spacer()
-							Text("Log out")
-								.font(.title)
-								.foregroundColor(.red)
-								.onTapGesture {
-									loggedIn = false
-								}
+							Button(action: {
+								loggedIn = false
+							}, label: {
+								Text("Log out")
+									.font(.title)
+									.foregroundColor(.red)
+							})
 							Spacer()
 						}
 					}
@@ -61,18 +62,14 @@ struct UserView: View {
 			else {
 				VStack {
 					NavigationLink(
-						destination: Text("Log in here"),
+						destination: LoginView(loggedIn: $loggedIn),
 						label: {
-							Button(action: {
-								loggedIn = true
-							}) {
-								HStack {
-									Text("LOG IN")
-										.font(.headline)
-										.foregroundColor(Color.blue)
-									Image(systemName: "arrow.right")
-										.font(Font.title.weight(.bold))
-								}
+							HStack {
+								Text("LOG IN")
+									.font(.headline)
+									.foregroundColor(Color.blue)
+								Image(systemName: "arrow.right")
+									.font(Font.title.weight(.bold))
 							}
 							.padding(.all, 20.0)
 							.overlay(
@@ -112,6 +109,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-		UserView(loggedIn: .constant(false))
+		UserView(loggedIn: .constant(true))
     }
 }
