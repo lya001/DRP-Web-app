@@ -13,12 +13,27 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+#### device iPhone 12 Pro (and probably similar devices) are not supported!
+
 default_platform(:ios)
 
 platform :ios do
-  desc "run tests"
-  lane :tests do
-    run_tests(scheme: "drp14")
+  desc "run unit tests"
+  lane :unitTests do
+    run_tests(
+      scheme: "drp14",
+      skip_build: true,
+      only_testing: ["drp14Tests"]
+    )
+  end
+
+  desc "run UI tests"
+  lane :UITests do
+    run_tests(
+      scheme: "drp14",
+      skip_build: true,
+      only_testing: ["drp14UITests"]
+    )
     # add actions here: https://docs.fastlane.tools/actions
   end
 end
