@@ -8,56 +8,110 @@
 import SwiftUI
 
 struct UserView: View {
+	
+	@Binding var loggedIn: Bool
+	
     var body: some View {
 		NavigationView {
-			GeometryReader { geo in
-				List {
-					HStack {
-						Spacer()
-						VStack {
-							Image(systemName: "person.crop.circle.fill")
-								.resizable()
-								.frame(width: geo.size.width / 2,
-									   height: geo.size.width / 2,
-									   alignment: .center)
-							Text("User 1").font(.title)
+			if self.loggedIn {
+				GeometryReader { geo in
+					List {
+						HStack {
+							Spacer()
+							VStack {
+								Image(systemName: "person.crop.circle.fill")
+									.resizable()
+									.frame(width: geo.size.width / 2,
+										   height: geo.size.width / 2,
+										   alignment: .center)
+								Text("User 1").font(.title)
+							}
+							.padding()
+							Spacer()
 						}
-						.padding()
-						Spacer()
+						
+						Section.init {
+							NavigationLink(
+								destination: Text("My questions list's interface"),
+								label: {
+									Text("My questions")
+								})
+							NavigationLink(
+								destination: Text("My answers list's interface"),
+								label: {
+									Text("My answers")
+								})
+						}
+						
+						HStack {
+							Spacer()
+							Text("Log out")
+								.font(.title)
+								.foregroundColor(.red)
+								.onTapGesture {
+									loggedIn = false
+								}
+							Spacer()
+						}
 					}
-					
-					Section.init {
-						NavigationLink(
-							destination: Text("My questions list's interface"),
-							label: {
-								Text("My questions")
-							})
-						NavigationLink(
-							destination: Text("My answers list's interface"),
-							label: {
-								Text("My answers")
-							})
-					}
-					
-					HStack {
-						Spacer()
-						Text("Log out")
-							.font(.title)
-							.foregroundColor(.red)
-						Spacer()
-					}
+					.listStyle(InsetGroupedListStyle())
+					.navigationTitle("Account")
 				}
-				.listStyle(InsetGroupedListStyle())
+			}
+			else {
+				VStack {
+					NavigationLink(
+						destination: Text("Log in here"),
+						label: {
+							Button(action: {
+								loggedIn = true
+							}) {
+								HStack {
+									Text("LOG IN")
+										.font(.headline)
+										.foregroundColor(Color.blue)
+									Image(systemName: "arrow.right")
+										.font(Font.title.weight(.bold))
+								}
+							}
+							.padding(.all, 20.0)
+							.overlay(
+								RoundedRectangle(cornerRadius: 20)
+									.stroke(Color(red: 0.627, green: 0.776, blue: 0.965),
+											lineWidth: 5)
+							)
+					})
+						.padding()
+					
+					NavigationLink(
+					 destination: Text("Register here"),
+					 label: {
+						Button(action: {}) {
+							HStack {
+								Text("REGISTER")
+									.font(.headline)
+									.foregroundColor(Color.blue)
+								Image(systemName: "arrow.right")
+									.font(Font.title.weight(.bold))
+							}
+						}
+						.padding(.all, 20.0)
+						.overlay(
+							RoundedRectangle(cornerRadius: 20)
+								.stroke(Color(red: 0.627, green: 0.776, blue: 0.965),
+										lineWidth: 5)
+						)
+					 })
+				}
 				.navigationTitle("Account")
 			}
 			
-			Spacer()
 		}
     }
 }
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView()
+		UserView(loggedIn: .constant(false))
     }
 }

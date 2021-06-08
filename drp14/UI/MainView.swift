@@ -10,15 +10,16 @@ import SwiftUI
 struct MainView: View {
 	
 	@StateObject var questionStore = QuestionStore()
+	@State private var loggedIn = false
 	
     var body: some View {
 		TabView {
-			QAView()
+			QAView(loggedIn: $loggedIn)
 				.environmentObject(questionStore)
 				.tabItem {
 					Label("Posts", systemImage: "bubble.middle.bottom.fill")
 				}
-			UserView()
+			UserView(loggedIn: $loggedIn)
 				.tabItem {
 					Label("User", systemImage: "person.circle.fill")
 				}

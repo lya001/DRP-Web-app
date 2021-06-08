@@ -13,10 +13,10 @@ struct QAView: View {
 	@EnvironmentObject var questionStore: QuestionStore
 	var dbRef: DatabaseReference! = Database.database().reference()
 	
-	let array = ["Peter", "Paul", "Mary", "Anna-Lena", "George", "John", "Greg", "Thomas", "Robert", "Bernie", "Mike", "Benno", "Hugo", "Miles", "Michael", "Mikel", "Tim", "Tom", "Lottie", "Lorrie", "Barbara"]
 	@State private var searchText = ""
 	@State private var showCancelButton: Bool = false
-	
+	@Binding var loggedIn: Bool
+	@State private var alertPresent = false
 	
     var body: some View {
 		NavigationView {
@@ -69,12 +69,21 @@ struct QAView: View {
 					Button(action: {
 						// TODO: should have an interface to write question and save it
 						// create a new question and save it
-						let question = Question("New question")
-						questionStore.add(question: question.getQuestion())
-						question.writeToDB()
+						if loggedIn {
+							let question = Question("New question")
+							questionStore.add(question: question.getQuestion())
+							question.writeToDB()
+						} else {
+							alertPresent = true
+						}
 					}, label: {
 						Text("Add Question")
 					})
+				})
+				.alert(isPresented: $alertPresent, content: {
+					return Alert(title: Text("Warning"),
+								 message: Text("You must log in in order to ask questions. Please go to \"User\" tab to log in."),
+								 dismissButton: .cancel())
 				})
 				.accessibility(identifier: "Questions list")
 			}
@@ -93,6 +102,6 @@ struct QAView_Previews: PreviewProvider {
 	}
 	
     static var previews: some View {
-		QAView().environmentObject(questionStore)
+		QAView(loggedIn: .constant(false)).environmentObject(questionStore)
     }
 }
