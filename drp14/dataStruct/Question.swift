@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-struct Question: Equatable, Identifiable {
+struct Question: Equatable, Identifiable, Hashable {
 	
 	var id: UUID
 	private var question: String
@@ -29,7 +29,7 @@ struct Question: Equatable, Identifiable {
 	}
 	
 	static func ==(lhs: Question, rhs: Question) -> Bool {
-		return lhs.question == rhs.question
+		return lhs.question == rhs.question && lhs.time == rhs.time
 	}
 	
 	mutating func update(question: String) {

@@ -28,6 +28,13 @@ class QuestionStoreTests: XCTestCase {
 		questionStore.add(question: "question A")
 		XCTAssertEqual(questionStore.questions.count, 1, "There should be one question now!")
 	}
+	
+	func testAddMultipleQuestionToQuestionStore() throws {
+		questionStore.add(question: "question A")
+		questionStore.add(question: "question B")
+		questionStore.add(question: "question C")
+		XCTAssertEqual(questionStore.questions.count, 3, "There should be one question now!")
+	}
 
 	/*
 	func testPerformanceExample() throws {
