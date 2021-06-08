@@ -16,11 +16,16 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
+### ios build
+```
+fastlane ios build
+```
+build
 ### ios tests
 ```
 fastlane ios tests
 ```
-Description of what the lane does
+run tests
 
 ----
 

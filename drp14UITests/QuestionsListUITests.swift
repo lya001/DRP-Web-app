@@ -26,15 +26,27 @@ class QuestionsListUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-		let questionsList = app.tables["Questions list"]
+		let questionsList = app.tables["questions list"]
 		XCTAssertEqual(questionsList.cells.count, 0, "There should be no questions when started")
     }
+	
+	func testCannotAddQuestionsWithoutLogin() throws {
+		let app = XCUIApplication()
+		app.launch()
+		
+		let questionList = app.tables["questions list"]
+		app.buttons["Add Question"].tap()
+		XCTAssertEqual(questionList.cells.count, 0, "There should be one question after pressing the \"Add Question\" button.")
+	}
 	
 	func testAddQuestions() throws {
 		let app = XCUIApplication()
 		app.launch()
 		
-		let questionList = app.tables["Questions list"]
+		let questionList = app.tables["questions list"]
+		app.buttons["User"].tap()
+		app.buttons["LOG IN"].tap()
+		app.buttons["Posts"].tap()
 		app.buttons["Add Question"].tap()
 		XCTAssertEqual(questionList.cells.count, 1, "There should be one question after pressing the \"Add Question\" button.")
 	}
