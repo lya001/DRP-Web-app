@@ -46,6 +46,7 @@ class QuestionsListUITests: XCTestCase {
 		let questionList = app.tables["questions list"]
 		app.buttons["User"].tap()
 		app.buttons["LOG IN"].tap()
+		app.buttons["Log in"].tap()
 		app.buttons["Posts"].tap()
 		app.buttons["Add Question"].tap()
 		XCTAssertEqual(questionList.cells.count, 1, "There should be one question after pressing the \"Add Question\" button.")

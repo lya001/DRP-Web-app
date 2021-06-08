@@ -18,6 +18,7 @@
 		B91C7CB8266910B0002111E3 /* QuestionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CB7266910B0002111E3 /* QuestionRowView.swift */; };
 		B91C7CC626691D45002111E3 /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7CA32668FD27002111E3 /* QuestionStore.swift */; };
 		B91C7CD126691FD0002111E3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C882668E73C002111E3 /* Question.swift */; };
+		B91DEB6D266F86B200465ADF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91DEB6C266F86B100465ADF /* LoginView.swift */; };
 		B938495D266E607D0009F767 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B938495C266E607D0009F767 /* GoogleService-Info.plist */; };
 		B938495E266E607D0009F767 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B938495C266E607D0009F767 /* GoogleService-Info.plist */; };
 		B938495F266E607D0009F767 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B938495C266E607D0009F767 /* GoogleService-Info.plist */; };
@@ -61,6 +62,7 @@
 		B91C7CA32668FD27002111E3 /* QuestionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStore.swift; sourceTree = "<group>"; };
 		B91C7CA92668FF6D002111E3 /* QuestionStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStoreTests.swift; sourceTree = "<group>"; };
 		B91C7CB7266910B0002111E3 /* QuestionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRowView.swift; sourceTree = "<group>"; };
+		B91DEB6C266F86B100465ADF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B938495C266E607D0009F767 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B9B73C1E2668D2BA00A1FD4A /* drp14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drp14.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B73C212668D2BA00A1FD4A /* drp14App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drp14App.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				B91C7C7E2668DFCB002111E3 /* QAView.swift */,
 				B91C7C832668DFE1002111E3 /* UserView.swift */,
 				B91C7CB7266910B0002111E3 /* QuestionRowView.swift */,
+				B91DEB6C266F86B100465ADF /* LoginView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				B91C7CB8266910B0002111E3 /* QuestionRowView.swift in Sources */,
 				B91C7CA42668FD27002111E3 /* QuestionStore.swift in Sources */,
 				B91C7C7F2668DFCB002111E3 /* QAView.swift in Sources */,
+				B91DEB6D266F86B200465ADF /* LoginView.swift in Sources */,
 				B91C7C842668DFE1002111E3 /* UserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

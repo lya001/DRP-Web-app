@@ -61,18 +61,14 @@ struct UserView: View {
 			else {
 				VStack {
 					NavigationLink(
-						destination: Text("Log in here"),
+						destination: LoginView(loggedIn: $loggedIn),
 						label: {
-							Button(action: {
-								loggedIn = true
-							}) {
-								HStack {
-									Text("LOG IN")
-										.font(.headline)
-										.foregroundColor(Color.blue)
-									Image(systemName: "arrow.right")
-										.font(Font.title.weight(.bold))
-								}
+							HStack {
+								Text("LOG IN")
+									.font(.headline)
+									.foregroundColor(Color.blue)
+								Image(systemName: "arrow.right")
+									.font(Font.title.weight(.bold))
 							}
 							.padding(.all, 20.0)
 							.overlay(
