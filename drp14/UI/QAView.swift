@@ -17,12 +17,21 @@ struct QAView: View {
 	@State private var showCancelButton: Bool = false
 	@Binding var loggedIn: Bool
 	@State private var alertPresent = false
+	@State private var startAskingQuestion = false
 	
     var body: some View {
 		NavigationView {
 			
 			// Search view
 			VStack {
+				
+				NavigationLink(
+					destination: WriteQuestionView().environmentObject(questionStore),
+					isActive: $startAskingQuestion,
+					label: {
+						EmptyView()
+					})
+				
 				HStack {
 					HStack {
 						Image(systemName: "magnifyingglass")
@@ -70,9 +79,7 @@ struct QAView: View {
 						// TODO: should have an interface to write question and save it
 						// create a new question and save it
 						if loggedIn {
-							let question = Question("New question")
-							questionStore.add(question: question.getQuestion())
-							question.writeToDB()
+							startAskingQuestion = true
 						} else {
 							alertPresent = true
 						}

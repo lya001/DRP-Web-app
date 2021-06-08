@@ -36,7 +36,8 @@ class QuestionsListUITests: XCTestCase {
 		
 		let questionList = app.tables["questions list"]
 		app.buttons["Add Question"].tap()
-		XCTAssertEqual(questionList.cells.count, 0, "There should be one question after pressing the \"Add Question\" button.")
+		app.buttons["Cancel"].tap()
+		XCTAssertEqual(questionList.cells.count, 0, "No question should be able to be added when the user did not log in.")
 	}
 	
 	func testAddQuestions() throws {
@@ -49,6 +50,10 @@ class QuestionsListUITests: XCTestCase {
 		app.buttons["Log in"].tap()
 		app.buttons["Posts"].tap()
 		app.buttons["Add Question"].tap()
+		while !app.buttons["Ask question"].exists {
+			app.swipeUp()
+		}
+		app.buttons["Ask question"].tap()
 		XCTAssertEqual(questionList.cells.count, 1, "There should be one question after pressing the \"Add Question\" button.")
 	}
 
