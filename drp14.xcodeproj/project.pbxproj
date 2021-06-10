@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		36181AF20BA60E32288523B3 /* Pods_drp14.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BE134F5110497407628240 /* Pods_drp14.framework */; };
+		68E305922671FAB900FBC9B1 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E305912671FAB900FBC9B1 /* RegisterView.swift */; };
+		68E305932671FAB900FBC9B1 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E305912671FAB900FBC9B1 /* RegisterView.swift */; };
 		B91C7C7F2668DFCB002111E3 /* QAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C7E2668DFCB002111E3 /* QAView.swift */; };
 		B91C7C842668DFE1002111E3 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C832668DFE1002111E3 /* UserView.swift */; };
 		B91C7C892668E73C002111E3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C7C882668E73C002111E3 /* Question.swift */; };
@@ -58,6 +60,7 @@
 		3A8B903AFA2E2A192659E849 /* Pods_drp14_drp14UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_drp14_drp14UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		455A978D8A0DDDC8DAAC6BA1 /* Pods-drp14Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drp14Tests.debug.xcconfig"; path = "Target Support Files/Pods-drp14Tests/Pods-drp14Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5128D1819391F2B72F6D5FC7 /* Pods-drp14-drp14UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drp14-drp14UITests.debug.xcconfig"; path = "Target Support Files/Pods-drp14-drp14UITests/Pods-drp14-drp14UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		68E305912671FAB900FBC9B1 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7B5802F9EDC1344FAA145DE2 /* Pods-drp14-drp14UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drp14-drp14UITests.release.xcconfig"; path = "Target Support Files/Pods-drp14-drp14UITests/Pods-drp14-drp14UITests.release.xcconfig"; sourceTree = "<group>"; };
 		B91C7C7E2668DFCB002111E3 /* QAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAView.swift; sourceTree = "<group>"; };
 		B91C7C832668DFE1002111E3 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
@@ -195,6 +198,7 @@
 				B91C7CB7266910B0002111E3 /* QuestionRowView.swift */,
 				B91DEB6C266F86B100465ADF /* LoginView.swift */,
 				B91DEB80266F8DFF00465ADF /* WriteQuestionView.swift */,
+				68E305912671FAB900FBC9B1 /* RegisterView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -462,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9B73C242668D2BA00A1FD4A /* MainView.swift in Sources */,
+				68E305922671FAB900FBC9B1 /* RegisterView.swift in Sources */,
 				B9B73C222668D2BA00A1FD4A /* drp14App.swift in Sources */,
 				B91C7C892668E73C002111E3 /* Question.swift in Sources */,
 				B91C7CB8266910B0002111E3 /* QuestionRowView.swift in Sources */,
@@ -491,6 +496,7 @@
 				B91DEB82266F8DFF00465ADF /* WriteQuestionView.swift in Sources */,
 				B91C7CC626691D45002111E3 /* QuestionStore.swift in Sources */,
 				B9B73C3F2668D2BD00A1FD4A /* QuestionsListUITests.swift in Sources */,
+				68E305932671FAB900FBC9B1 /* RegisterView.swift in Sources */,
 				B91DEB86266F8E1000465ADF /* LoginView.swift in Sources */,
 				B91C7CD126691FD0002111E3 /* Question.swift in Sources */,
 			);

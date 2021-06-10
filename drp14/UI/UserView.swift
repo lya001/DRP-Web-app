@@ -80,25 +80,23 @@ struct UserView: View {
 					})
 						.padding()
 					
-					NavigationLink(
-					 destination: Text("Register here"),
-					 label: {
-						Button(action: {}) {
-							HStack {
-								Text("REGISTER")
-									.font(.headline)
-									.foregroundColor(Color.blue)
-								Image(systemName: "arrow.right")
-									.font(Font.title.weight(.bold))
-							}
-						}
-						.padding(.all, 20.0)
-						.overlay(
-							RoundedRectangle(cornerRadius: 20)
-								.stroke(Color(red: 0.627, green: 0.776, blue: 0.965),
-										lineWidth: 5)
-						)
-					 })
+                    NavigationLink(
+                        destination: RegisterView(loggedIn: $loggedIn),
+                        label: {
+                            HStack {
+                                Text("REGISTER")
+                                    .font(.headline)
+                                    .foregroundColor(Color.blue)
+                                Image(systemName: "arrow.right")
+                                    .font(Font.title.weight(.bold))
+                            }
+                            .padding(.all, 20.0)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Color(red: 0.627, green: 0.776, blue: 0.965),
+                                            lineWidth: 5)
+                            )
+                        })
 				}
 				.navigationTitle("Account")
 			}
