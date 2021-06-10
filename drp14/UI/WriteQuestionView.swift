@@ -37,7 +37,7 @@ struct WriteQuestionView: View {
 					.padding()
 					.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
 					.cornerRadius(10)
-					.frame(width: screenWidth * 0.9, height: screenHeight * 0.3, alignment: .center)
+					.frame(width: screenWidth * 0.9, height: screenHeight * 0.1, alignment: .center)
 					.padding(.trailing)
 					.padding(.leading)
 				
@@ -52,7 +52,7 @@ struct WriteQuestionView: View {
 					.padding()
 					.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
 					.cornerRadius(10)
-					.frame(width: screenWidth * 0.9, height: screenHeight * 0.7, alignment: .center)
+					.frame(width: screenWidth * 0.9, height: screenHeight * 0.5, alignment: .center)
 					.padding(.trailing)
 					.padding(.leading)
 				
@@ -60,7 +60,7 @@ struct WriteQuestionView: View {
 					Spacer()
 					
 					Button(action: {
-						let question = Question(self.question, withDetail: detail)
+                        let question = Question(self.question, withDetail: self.detail)
 						questionStore.add(question: question.getQuestion())
 						question.writeToDB()
 						presentation.wrappedValue.dismiss()
