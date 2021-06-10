@@ -13,4 +13,8 @@ class QuestionStore: ObservableObject {
 	func add(question: String) {
 		questions.append(Question(question))
 	}
+    
+    func add(question: String, detail: String) {
+        questions.append(Question(question, withDetail: detail))
+    }
 }
