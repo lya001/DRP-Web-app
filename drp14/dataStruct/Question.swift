@@ -45,6 +45,10 @@ struct Question: Equatable, Identifiable, Hashable {
 	func getQuestion() -> String {
 		return self.question
 	}
+    
+    func getDetail() -> String {
+        return self.detail
+    }
 	
 	func getTime() -> Date {
 		return self.time
