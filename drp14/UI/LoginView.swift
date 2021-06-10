@@ -22,11 +22,11 @@ struct LoginView: View {
 				.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
 				.cornerRadius(10)
 				.padding()
-			TextField("Password", text: $password)
+			SecureField("Password", text: $password)
 				.padding()
 				.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
 				.cornerRadius(10)
-				.padding()
+                .padding()
 			Button(action: {
 				loggedIn = true
 				presentation.wrappedValue.dismiss()
