@@ -60,8 +60,13 @@ struct WriteQuestionView: View {
 					Spacer()
 					
 					Button(action: {
-                        let question = Question(self.question, withDetail: self.detail)
-						questionStore.add(question: question.getQuestion())
+                        let question = Question(self.question, withDetail: detail)
+                        if (detail == "") {
+                            questionStore.add(question: question.getQuestion())
+                        }
+                        else {
+                            questionStore.add(question: question.getQuestion(), detail: question.getDetail())
+                        }
 						question.writeToDB()
 						presentation.wrappedValue.dismiss()
 					}, label: {
