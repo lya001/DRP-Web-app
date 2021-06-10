@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>628108982241-9ts1rh54pl36alda7pn3q1eh7crpsajv.apps.googleusercontent.com</string>
+	<string>763052560398-ghu1qf53usvehrnqi23324batbl1qnbb.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.628108982241-9ts1rh54pl36alda7pn3q1eh7crpsajv</string>
+	<string>com.googleusercontent.apps.763052560398-ghu1qf53usvehrnqi23324batbl1qnbb</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDTqf0wuD7mu1AJ8A6sF2sSSIZyOWGw8is</string>
+	<string>AIzaSyCEjVzxbNiboL_qxooOTJq-_RxdODLVjw0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>628108982241</string>
+	<string>763052560398</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.drp14.ic.ac.drp14</string>
 	<key>PROJECT_ID</key>
-	<string>drp14-fdc48</string>
+	<string>drp14-423d5</string>
 	<key>STORAGE_BUCKET</key>
-	<string>drp14-fdc48.appspot.com</string>
+	<string>drp14-423d5.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:628108982241:ios:830b04406ec205f671c4a0</string>
+	<string>1:763052560398:ios:6a43ba58a7d4eac4042c5f</string>
 	<key>DATABASE_URL</key>
-	<string>https://drp14-fdc48-default-rtdb.europe-west1.firebasedatabase.app</string>
+	<string>https://drp14-423d5-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>
