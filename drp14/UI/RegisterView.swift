@@ -16,6 +16,7 @@ struct RegisterView: View {
     @Binding var loggedIn: Bool
     @State private var userName = ""
     @State private var password = ""
+    @State private var confirmedPassword = ""
     
     var body: some View {
         VStack {
@@ -29,13 +30,22 @@ struct RegisterView: View {
                 .background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
                 .cornerRadius(10)
                 .padding()
+            TextField("Confirmed Password", text: $confirmedPassword)
+                           .padding()
+                           .background(Color(UIColor.lightGray
+                                               .withAlphaComponent(0.4)))
+                           .cornerRadius(10)
+                           .padding()
+
             Button(action: {
-                Database.database().reference().child("users/\(UUID().uuidString)").setValue([
-                    "userName": userName,
-                    "password": password
-                ])
-                loggedIn = true
-                presentation.wrappedValue.dismiss()
+                if (password == confirmedPassword) {
+                    Database.database().reference().child("users/\(UUID().uuidString)").setValue([
+                        "userName": userName,
+                        "password": password
+                    ])
+                    loggedIn = true
+                    presentation.wrappedValue.dismiss()
+                } 
             }, label: {
                 HStack {
                     Text("Register")

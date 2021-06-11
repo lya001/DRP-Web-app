@@ -18,11 +18,11 @@ struct UserView: View {
 					List {
 						HStack {
 							Spacer()
-							VStack {
+							HStack {
 								Image(systemName: "person.crop.circle.fill")
 									.resizable()
-									.frame(width: geo.size.width / 2,
-										   height: geo.size.width / 2,
+									.frame(width: geo.size.width / 8,
+										   height: geo.size.width / 8,
 										   alignment: .center)
 								Text("User 1").font(.title)
 							}
