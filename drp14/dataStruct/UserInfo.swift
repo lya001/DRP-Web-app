@@ -10,14 +10,12 @@ import Firebase
 
 struct UserInfo: Equatable, Identifiable, Hashable {
     var id: UUID
-    private var username, password, phoneNumber, mailAddress: String
+    private var username, password: String
     
-    public init(withUsername username: String, withPassword password: String, withPhoneNumber phoneNumber: String, withMailAddress mailAddress: String, withID id: UUID) {
+    public init(withUsername username: String, withPassword password: String, withID id: UUID) {
         self.id = id
         self.username = username
         self.password = password
-        self.phoneNumber = phoneNumber
-        self.mailAddress = mailAddress
     }
     
     func getUserName() -> String {
@@ -31,9 +29,7 @@ struct UserInfo: Equatable, Identifiable, Hashable {
     func writeToDB() {
         Database.database().reference().child("userInfo/\(id.uuidString)").setValue([
             "userName": username,
-            "password": password,
-            "phoneNumber": phoneNumber,
-            "mailAddress": mailAddress
+            "password": password
         ])
     }
 }
