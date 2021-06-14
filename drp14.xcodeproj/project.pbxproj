@@ -31,6 +31,7 @@
 		B938495D266E607D0009F767 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B938495C266E607D0009F767 /* GoogleService-Info.plist */; };
 		B938495E266E607D0009F767 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B938495C266E607D0009F767 /* GoogleService-Info.plist */; };
 		B938495F266E607D0009F767 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B938495C266E607D0009F767 /* GoogleService-Info.plist */; };
+		B97922002677EDEE00CDF00B /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97921FF2677EDEE00CDF00B /* AddTagView.swift */; };
 		B9B73C222668D2BA00A1FD4A /* drp14App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B73C212668D2BA00A1FD4A /* drp14App.swift */; };
 		B9B73C242668D2BA00A1FD4A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B73C232668D2BA00A1FD4A /* MainView.swift */; };
 		B9B73C262668D2BD00A1FD4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B73C252668D2BD00A1FD4A /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		B91DEB6C266F86B100465ADF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B91DEB80266F8DFF00465ADF /* WriteQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteQuestionView.swift; sourceTree = "<group>"; };
 		B938495C266E607D0009F767 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B97921FF2677EDEE00CDF00B /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
 		B9B73C1E2668D2BA00A1FD4A /* drp14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drp14.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B73C212668D2BA00A1FD4A /* drp14App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drp14App.swift; sourceTree = "<group>"; };
 		B9B73C232668D2BA00A1FD4A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				B91DEB80266F8DFF00465ADF /* WriteQuestionView.swift */,
 				68E305912671FAB900FBC9B1 /* RegisterView.swift */,
 				68E3059426722E9C00FBC9B1 /* PostView.swift */,
+				B97921FF2677EDEE00CDF00B /* AddTagView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				B91C7CB8266910B0002111E3 /* QuestionRowView.swift in Sources */,
 				B91C7CA42668FD27002111E3 /* QuestionStore.swift in Sources */,
 				B91C7C7F2668DFCB002111E3 /* QAView.swift in Sources */,
+				B97922002677EDEE00CDF00B /* AddTagView.swift in Sources */,
 				B91DEB6D266F86B200465ADF /* LoginView.swift in Sources */,
 				B91C7C842668DFE1002111E3 /* UserView.swift in Sources */,
 				B91DEB81266F8DFF00465ADF /* WriteQuestionView.swift in Sources */,

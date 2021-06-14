@@ -14,6 +14,8 @@ struct WriteQuestionView: View {
 	
 	@State private var question = ""
 	@State private var detail = ""
+	@State private var tags: [String] = []
+	@State private var addTagViewPresented = false
 	
 	private let screenWidth = UIScreen.main.bounds.size.width
 	private let screenHeight = UIScreen.main.bounds.size.height
@@ -37,7 +39,7 @@ struct WriteQuestionView: View {
 					.padding()
 					.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
 					.cornerRadius(10)
-					.frame(width: screenWidth * 0.9, height: screenHeight * 0.1, alignment: .center)
+					.frame(width: screenWidth * 0.9, height: screenHeight * 0.2, alignment: .center)
 					.padding(.trailing)
 					.padding(.leading)
 				
@@ -52,9 +54,53 @@ struct WriteQuestionView: View {
 					.padding()
 					.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
 					.cornerRadius(10)
-					.frame(width: screenWidth * 0.9, height: screenHeight * 0.5, alignment: .center)
+					.frame(width: screenWidth * 0.9, height: screenHeight * 0.3, alignment: .center)
 					.padding(.trailing)
 					.padding(.leading)
+				
+				HStack {
+					if !tags.isEmpty {
+						Text("Tags")
+							.font(.title)
+							.padding()
+					}
+					Button(action: {
+						   addTagViewPresented = true
+					   }, label: {
+						Spacer()
+						Text("add tag +")
+							.padding(.all, 10.0)
+							.overlay(
+								RoundedRectangle(cornerRadius: 8)
+									.stroke(Color(red: 0.627, green: 0.776, blue: 0.965),
+											lineWidth: 5)
+							)
+							.padding()
+					   })
+					   .sheet(isPresented: $addTagViewPresented, content: {
+						   AddTagView(tags: $tags)
+					   })
+					
+					Spacer()
+				}
+				
+				VStack {
+					if !tags.isEmpty {
+						ForEach(tags, id: \.self) { tag in
+							HStack {
+								Text(tag)
+									.padding(7)
+									.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
+									.cornerRadius(5)
+									.padding(.leading)
+									.padding(.top, 5)
+								Image(systemName: "minus.circle.fill")
+									.foregroundColor(.red)
+								Spacer()
+							}
+						}
+					}
+				}
 				
 				HStack {
 					Spacer()
