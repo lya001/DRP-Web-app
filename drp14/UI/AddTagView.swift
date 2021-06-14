@@ -22,7 +22,11 @@ struct AddTagView: View {
 				.padding()
 			
 			Button(action: {
-				tags.append(tag)
+				// strip off extra spaces at the front and back, and in between the words of the tag string
+				tag = tag.components(separatedBy: .whitespaces).filter({!$0.isEmpty}).joined(separator: " ")
+				if tag != "" {
+					tags.append(tag)
+				}
 				presentationMode.wrappedValue.dismiss()
 			}, label: {
 				HStack {

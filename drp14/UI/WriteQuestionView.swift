@@ -94,8 +94,14 @@ struct WriteQuestionView: View {
 									.cornerRadius(5)
 									.padding(.leading)
 									.padding(.top, 5)
+									.onTapGesture {
+										tags.remove(at: tags.firstIndex(of: tag)!)
+									}
 								Image(systemName: "minus.circle.fill")
 									.foregroundColor(.red)
+									.onTapGesture {
+										tags.remove(at: tags.firstIndex(of: tag)!)
+									}
 								Spacer()
 							}
 						}
