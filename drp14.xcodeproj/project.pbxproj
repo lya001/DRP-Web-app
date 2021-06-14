@@ -32,6 +32,7 @@
 		B938495E266E607D0009F767 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B938495C266E607D0009F767 /* GoogleService-Info.plist */; };
 		B938495F266E607D0009F767 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B938495C266E607D0009F767 /* GoogleService-Info.plist */; };
 		B97922002677EDEE00CDF00B /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97921FF2677EDEE00CDF00B /* AddTagView.swift */; };
+		B97922042677FDD500CDF00B /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97921FF2677EDEE00CDF00B /* AddTagView.swift */; };
 		B9B73C222668D2BA00A1FD4A /* drp14App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B73C212668D2BA00A1FD4A /* drp14App.swift */; };
 		B9B73C242668D2BA00A1FD4A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B73C232668D2BA00A1FD4A /* MainView.swift */; };
 		B9B73C262668D2BD00A1FD4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B73C252668D2BD00A1FD4A /* Assets.xcassets */; };
@@ -511,6 +512,7 @@
 				68E3059626722E9C00FBC9B1 /* PostView.swift in Sources */,
 				B91DEB82266F8DFF00465ADF /* WriteQuestionView.swift in Sources */,
 				B91C7CC626691D45002111E3 /* QuestionStore.swift in Sources */,
+				B97922042677FDD500CDF00B /* AddTagView.swift in Sources */,
 				B9B73C3F2668D2BD00A1FD4A /* QuestionsListUITests.swift in Sources */,
 				68E305932671FAB900FBC9B1 /* RegisterView.swift in Sources */,
 				B91DEB86266F8E1000465ADF /* LoginView.swift in Sources */,
