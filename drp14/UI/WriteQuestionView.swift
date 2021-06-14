@@ -112,7 +112,7 @@ struct WriteQuestionView: View {
 					Spacer()
 					
 					Button(action: {
-                        let question = Question(self.question, withDetail: detail)
+                        let question = Question(self.question, withDetail: detail, withTags: tags)
                         if (detail == "") {
                             questionStore.add(question: question.getQuestion())
                         }
