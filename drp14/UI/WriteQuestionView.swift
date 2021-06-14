@@ -113,12 +113,7 @@ struct WriteQuestionView: View {
 					
 					Button(action: {
                         let question = Question(self.question, withDetail: detail, withTags: tags)
-                        if (detail == "") {
-                            questionStore.add(question: question.getQuestion())
-                        }
-                        else {
-                            questionStore.add(question: question.getQuestion(), detail: question.getDetail())
-                        }
+						questionStore.addQuestion(question)
 						question.writeToDB()
 						presentation.wrappedValue.dismiss()
 					}, label: {

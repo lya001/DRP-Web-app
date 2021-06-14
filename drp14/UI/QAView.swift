@@ -68,7 +68,9 @@ struct QAView: View {
 				
 				List {
 					ForEach(self.questionStore.questions.filter{
-								$0.getQuestion().localizedCaseInsensitiveContains(searchText) || searchText == ""
+								$0.getQuestion().localizedCaseInsensitiveContains(searchText)
+									|| $0.getTags().joined(separator: " ").localizedCaseInsensitiveContains(searchText)
+									|| searchText == ""
 					}, id: \.self) { searchQuestion in
 						QuestionRowView(question: searchQuestion)
 					}
@@ -101,9 +103,9 @@ struct QAView_Previews: PreviewProvider {
 	
 	static var questionStore: QuestionStore {
 		let questionStore = QuestionStore()
-		questionStore.add(question: "qA is known")
-		questionStore.add(question: "qB is  not known")
-		questionStore.add(question: "qChaha.")
+		questionStore.add(question: "qA is known", withDetail: "", withTags: ["nice"])
+		questionStore.add(question: "qB is  not known", withDetail: "Nothing fancy", withTags: ["Halo there and", "world!"])
+		questionStore.add(question: "qChahah", withDetail: "Nothing for now", withTags: ["yo", "lower case", "right"])
 		return questionStore
 	}
 	

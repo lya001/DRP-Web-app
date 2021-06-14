@@ -60,6 +60,10 @@ struct Question: Equatable, Identifiable, Hashable {
 		return self.time
 	}
 	
+	func getTags() -> [String] {
+		return self.tags
+	}
+	
 	func writeToDB() {
 		Database.database().reference().child("questions/\(id.uuidString)").setValue([
 			"question": question,
