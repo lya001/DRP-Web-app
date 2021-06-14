@@ -14,24 +14,30 @@ struct Question: Equatable, Identifiable, Hashable {
 	private var question: String
 	private var detail: String
 	private var time: Date
+	private var tags: [String] = []
 	
-	public init(_ question: String, withDetail detail: String, atTime time: Date, withID id: UUID) {
+	public init(_ question: String, withDetail detail: String, withTags tags: [String], atTime time: Date, withID id: UUID) {
 		self.id = id
 		self.question = question
 		self.detail = detail
+		self.tags = tags
 		self.time = time
 	}
 	
+	public init(_ question: String, withDetail detail: String, withTags tags: [String]) {
+		self.init(question, withDetail: detail, withTags: tags, atTime: Date(), withID: UUID())
+	}
+	
 	public init(_ question: String, withDetail detail: String) {
-		self.init(question, withDetail: detail, atTime: Date(), withID: UUID())
+		self.init(question, withDetail: detail, withTags: [])
 	}
 	
 	public init(_ question: String, atTime time: Date) {
-		self.init(question, withDetail: "", atTime: time, withID: UUID())
+		self.init(question, withDetail: "", withTags: [], atTime: time, withID: UUID())
 	}
 	
 	public init(_ question: String) {
-		self.init(question, withDetail: "", atTime: Date(), withID: UUID())
+		self.init(question, withDetail: "", withTags: [])
 	}
 	
 	static func ==(lhs: Question, rhs: Question) -> Bool {
@@ -54,11 +60,16 @@ struct Question: Equatable, Identifiable, Hashable {
 		return self.time
 	}
 	
+	func getTags() -> [String] {
+		return self.tags
+	}
+	
 	func writeToDB() {
 		Database.database().reference().child("questions/\(id.uuidString)").setValue([
 			"question": question,
 			"detail": detail,
-			"time": time.timeIntervalSince1970
+			"time": time.timeIntervalSince1970,
+			"tags": tags
 		])
 	}
 }

@@ -10,6 +10,10 @@ import Foundation
 class QuestionStore: ObservableObject {
 	@Published var questions: [Question] = []
 	
+	func addQuestion(_ question: Question) {
+		questions.append(question)
+	}
+	
 	func add(question: String) {
 		questions.append(Question(question))
 	}
@@ -17,4 +21,8 @@ class QuestionStore: ObservableObject {
     func add(question: String, detail: String) {
         questions.append(Question(question, withDetail: detail))
     }
+	
+	func add(question: String, withDetail detail: String, withTags tags: [String]) {
+		questions.append(Question(question, withDetail: detail, withTags: tags))
+	}
 }

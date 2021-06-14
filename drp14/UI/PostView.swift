@@ -13,6 +13,8 @@ struct PostView: View {
     
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
+	private let noDetailString = "No more details provided."
+	private let noTagString = "No tags specified for this question."
     
     var body: some View {
         GeometryReader {geo in
@@ -24,24 +26,44 @@ struct PostView: View {
                         .padding(.leading)
                     Spacer()
                 }
-                Text(question.getQuestion())
-                    .padding()
-                    .background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
-                    .cornerRadius(10)
-                    .frame(width: screenWidth * 0.9, height: screenHeight * 0.3, alignment: .topLeading)
+				HStack {
+					Text(question.getQuestion())
+						.padding()
+						.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
+						.cornerRadius(10)
+						.padding()
+					Spacer()
+				}
                 HStack {
                     Text("Details/Description")
                         .font(.title)
-                        .padding(.top)
                         .padding(.leading)
                     Spacer()
                 }
-                Text(question.getDetail())
-                    .padding()
-                    .background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
-                    .cornerRadius(10)
-                    .frame(width: screenWidth * 0.9, height: screenHeight * 0.7, alignment: .topLeading)
+				HStack {
+					Text(question.getDetail() != "" ? question.getDetail() : noDetailString)
+						.padding()
+						.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
+						.cornerRadius(10)
+						.padding()
+					Spacer()
+				}
+				HStack {
+					Text("Tags")
+						.font(.title)
+						.padding(.leading)
+					Spacer()
+				}
+				HStack {
+					Text(question.getTags().count != 0 ? question.getTags().joined(separator: ", ") : noTagString)
+						.padding()
+						.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
+						.cornerRadius(10)
+						.padding()
+					Spacer()
+				}
             }
+			.navigationTitle("Post")
         }
     }
     

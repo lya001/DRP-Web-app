@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <testsuites name='drp14UITests.xctest' tests='3' failures='0'>
   <testsuite name='drp14UITests.QuestionsListUITests' tests='3' failures='0'>
-    <testcase classname='drp14UITests.QuestionsListUITests' name='testAddQuestions' time='14.299'/>
-    <testcase classname='drp14UITests.QuestionsListUITests' name='testCannotAddQuestionsWithoutLogin' time='6.200'/>
-    <testcase classname='drp14UITests.QuestionsListUITests' name='testInitializeQuestionList' time='4.943'/>
+    <testcase classname='drp14UITests.QuestionsListUITests' name='testAddQuestions' time='10.055'/>
+    <testcase classname='drp14UITests.QuestionsListUITests' name='testCannotAddQuestionsWithoutLogin' time='5.607'/>
+    <testcase classname='drp14UITests.QuestionsListUITests' name='testInitializeQuestionList' time='3.888'/>
   </testsuite>
 </testsuites>

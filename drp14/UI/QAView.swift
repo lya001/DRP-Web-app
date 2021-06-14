@@ -67,17 +67,18 @@ struct QAView: View {
 				.animation(.none)
 				
 				List {
-					ForEach(self.questionStore.questions.filter{$0.getQuestion().hasPrefix(searchText) || searchText == ""}, id: \.self) { searchQuestion in
+					ForEach(self.questionStore.questions.filter{
+								$0.getQuestion().localizedCaseInsensitiveContains(searchText)
+									|| $0.getTags().joined(separator: " ").localizedCaseInsensitiveContains(searchText)
+									|| searchText == ""
+					}, id: \.self) { searchQuestion in
 						QuestionRowView(question: searchQuestion)
 					}
-
 				}
 				.listStyle(InsetListStyle())
 				.navigationTitle("Questions")
 				.toolbar(content: {
 					Button(action: {
-						// TODO: should have an interface to write question and save it
-						// create a new question and save it
 						if loggedIn {
 							startAskingQuestion = true
 						} else {
@@ -102,9 +103,9 @@ struct QAView_Previews: PreviewProvider {
 	
 	static var questionStore: QuestionStore {
 		let questionStore = QuestionStore()
-		questionStore.add(question: "qA")
-		questionStore.add(question: "qB")
-		questionStore.add(question: "qC")
+		questionStore.add(question: "qA is known", withDetail: "", withTags: ["nice"])
+		questionStore.add(question: "qB is  not known", withDetail: "Nothing fancy", withTags: ["Halo there and", "world!"])
+		questionStore.add(question: "qChahah", withDetail: "Nothing for now", withTags: ["yo", "lower case", "right"])
 		return questionStore
 	}
 	
