@@ -17,6 +17,7 @@ struct RegisterView: View {
     @State private var userName = ""
     @State private var password = ""
     @State private var confirmedPassword = ""
+    @State private var alertConfirmedPassword = false
     
     var body: some View {
         VStack {
@@ -30,7 +31,7 @@ struct RegisterView: View {
                 .background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
                 .cornerRadius(10)
                 .padding()
-            TextField("Confirmed Password", text: $confirmedPassword)
+            SecureField("Confirmed Password", text: $confirmedPassword)
                            .padding()
                            .background(Color(UIColor.lightGray
                                                .withAlphaComponent(0.4)))
@@ -45,12 +46,19 @@ struct RegisterView: View {
                     ])
                     loggedIn = true
                     presentation.wrappedValue.dismiss()
-                } 
+                } else {
+                    alertConfirmedPassword = true
+                }
             }, label: {
                 HStack {
                     Text("Register")
                         .font(.headline)
                         .foregroundColor(Color.blue)
+                        .alert(isPresented: $alertConfirmedPassword, content: {
+                            return Alert(title: Text("Warning"),
+                                         message: Text("Confirmed password is not the same as the password. You must enter the same password twice"),
+                                         dismissButton: .cancel())
+                        })
                     Image(systemName: "return")
                         .font(Font.title.weight(.bold))
                 }
