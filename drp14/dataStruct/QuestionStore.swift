@@ -25,4 +25,9 @@ class QuestionStore: ObservableObject {
 	func add(question: String, withDetail detail: String, withTags tags: [String]) {
 		questions.append(Question(question, withDetail: detail, withTags: tags))
 	}
+	
+	func update(question: Question) {
+		print("updating question \(questions.firstIndex(where: {$0.id == question.id && $0.getQuestion() == question.getQuestion()}) ?? -1)")
+		questions[questions.firstIndex(where: {$0.id == question.id})!] = question
+	}
 }

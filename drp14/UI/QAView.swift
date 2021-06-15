@@ -72,7 +72,7 @@ struct QAView: View {
 									|| $0.getTags().joined(separator: " ").localizedCaseInsensitiveContains(searchText)
 									|| searchText == ""
 					}, id: \.self) { searchQuestion in
-						QuestionRowView(question: searchQuestion)
+						QuestionRowView(question: searchQuestion).environmentObject(questionStore)
 					}
 				}
 				.listStyle(InsetListStyle())
@@ -95,6 +95,14 @@ struct QAView: View {
 				})
 				.accessibility(identifier: "questions list")
 			}
+			.onAppear(perform: {
+				print("-------------")
+				print("Appearing again")
+				for question in questionStore.questions {
+					print("This question has \(question.getAnswers().count) answers.")
+				}
+				print("-------------")
+			})
 		}
     }
 }

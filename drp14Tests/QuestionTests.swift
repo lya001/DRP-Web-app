@@ -44,7 +44,7 @@ class QuestionTests: XCTestCase {
 		let question = Question(questionA, atTime: time)
 		
 		// add the question to the database
-		question.writeToDB()
+		question.writeQuestionToDB()
 		
 		// query the question and it should be able to be found in the database
 		Database.database().reference().child("questions/\(question.id)").observeSingleEvent(of: .value) { (snapshot) in
