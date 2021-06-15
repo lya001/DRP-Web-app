@@ -13,8 +13,9 @@ struct Question: Equatable, Identifiable, Hashable {
 	var id: UUID
 	private var question: String
 	private var detail: String
+	private var answers: [String] = []
 	private var time: Date
-	private var tags: [String] = []
+	private var tags: [String]
 	
 	public init(_ question: String, withDetail detail: String, withTags tags: [String], atTime time: Date, withID id: UUID) {
 		self.id = id
@@ -48,6 +49,13 @@ struct Question: Equatable, Identifiable, Hashable {
 		self.question = question
 	}
 	
+	mutating func add(answer: String) {
+		if answer != "" {
+			self.answers.append(answer)
+			Database.database().reference().child("questions/\(id.uuidString)/anwers/answer_\(answers.count)").setValue(answer)
+		}
+	}
+	
 	func getQuestion() -> String {
 		return self.question
 	}
@@ -64,7 +72,11 @@ struct Question: Equatable, Identifiable, Hashable {
 		return self.tags
 	}
 	
-	func writeToDB() {
+	func getAnswers() -> [String] {
+		return self.answers
+	}
+	
+	func writeQuestionToDB() {
 		Database.database().reference().child("questions/\(id.uuidString)").setValue([
 			"question": question,
 			"detail": detail,

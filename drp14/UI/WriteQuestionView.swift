@@ -114,7 +114,7 @@ struct WriteQuestionView: View {
 					Button(action: {
                         let question = Question(self.question, withDetail: detail, withTags: tags)
 						questionStore.addQuestion(question)
-						question.writeToDB()
+						question.writeQuestionToDB()
 						presentation.wrappedValue.dismiss()
 					}, label: {
 						HStack {
