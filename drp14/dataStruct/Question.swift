@@ -28,6 +28,10 @@ struct Question: Equatable, Identifiable, Hashable {
 	public init(_ question: String, withDetail detail: String, withTags tags: [String]) {
 		self.init(question, withDetail: detail, withTags: tags, atTime: Date(), withID: UUID())
 	}
+    
+    public init(_ question: String, withDetail detail: String, atTime time: Date) {
+        self.init(question, withDetail: detail, withTags: [], atTime: time, withID: UUID())
+    }
 	
 	public init(_ question: String, withDetail detail: String) {
 		self.init(question, withDetail: detail, withTags: [])
@@ -42,7 +46,7 @@ struct Question: Equatable, Identifiable, Hashable {
 	}
 	
 	static func ==(lhs: Question, rhs: Question) -> Bool {
-		return lhs.question == rhs.question
+		return lhs.id == rhs.id
 	}
 	
 	mutating func update(question: String) {

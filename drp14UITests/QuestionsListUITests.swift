@@ -21,23 +21,16 @@ class QuestionsListUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testInitializeQuestionList() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-		let questionsList = app.tables["questions list"]
-		XCTAssertEqual(questionsList.cells.count, 0, "There should be no questions when started")
-    }
 	
 	func testCannotAddQuestionsWithoutLogin() throws {
 		let app = XCUIApplication()
 		app.launch()
 		
 		let questionList = app.tables["questions list"]
+		let prevCount = questionList.cells.count
 		app.buttons["Add Question"].tap()
 		app.buttons["Cancel"].tap()
-		XCTAssertEqual(questionList.cells.count, 0, "No question should be able to be added when the user did not log in.")
+		XCTAssertEqual(questionList.cells.count - prevCount, 0, "No question should be able to be added when the user did not log in.")
 	}
 	
 	func testAddQuestions() throws {
@@ -45,6 +38,7 @@ class QuestionsListUITests: XCTestCase {
 		app.launch()
 		
 		let questionList = app.tables["questions list"]
+		let prevCount = questionList.cells.count
 		app.buttons["User"].tap()
 		app.buttons["LOG IN"].tap()
 		app.buttons["Log in"].tap()
@@ -54,7 +48,7 @@ class QuestionsListUITests: XCTestCase {
 			app.swipeUp()
 		}
 		app.buttons["Ask question"].tap()
-		XCTAssertEqual(questionList.cells.count, 1, "There should be one question after pressing the \"Add Question\" button.")
+		XCTAssertEqual(questionList.cells.count - prevCount, 1, "There should be one question added after pressing the \"Add Question\" button.")
 	}
 
 	/*
