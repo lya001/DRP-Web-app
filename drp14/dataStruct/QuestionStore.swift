@@ -13,31 +13,47 @@ class QuestionStore: ObservableObject {
     
     init() {
         questions = []
-        _ = Database.database().reference().child("questions").observe(.value, with: { (snapshot) -> Void in
-            if snapshot.exists() {
-                
-                print(snapshot)
-                
-                let array: NSArray = snapshot.children.allObjects as NSArray
-                var question: String
-                var detail: String
-                var time: Date
+        retrieveQuestionsFromDB()
+    }
+	
+	func retrieveQuestionsFromDB() {
+		Database.database().reference().child("questions").observe(.value, with: { (snapshot) -> Void in
+			if snapshot.exists() {
+				
+				let array: NSArray = snapshot.children.allObjects as NSArray
+				var question, detail: String
+				var time: Date
+				var tags, answers: [String]
+				var questionObj: Question
+				var id: UUID
 				
 				self.questions = []
 				
-                for child in array {
-                    let snap = child as! DataSnapshot
-                    if snap.value is NSDictionary {
-                        let data: NSDictionary = snap.value as! NSDictionary
-                        question = data.value(forKey: "question") as! String
-                        detail = data.value(forKey: "detail") as! String
-                        time = Date(timeIntervalSince1970: data.value(forKey: "time") as! TimeInterval) 
-                        self.questions.append(Question(question, withDetail: detail, atTime: time))
-                    }
-                }
-            }
-        })
-    }
+				for child in array {
+					let snap = child as! DataSnapshot
+					id = UUID(uuidString: snap.key)!
+					if snap.value is NSDictionary {
+						let data: NSDictionary = snap.value as! NSDictionary
+						
+						// initialize the questino obj
+						question = data.value(forKey: "question") as! String
+						detail = data.value(forKey: "detail") as! String
+						tags = data.value(forKey: "tags") as? [String] ?? []
+						answers = data.value(forKey: "answers") as? [String] ?? []
+						time = Date(timeIntervalSince1970: data.value(forKey: "time") as! TimeInterval)
+						questionObj = Question(question, withDetail: detail, withTags: tags, atTime: time, withID: id)
+						
+						// retrieve the answers of the question
+						for answer in answers {
+							questionObj.add(answer: answer)
+						}
+						
+						self.questions.append(questionObj)
+					}
+				}
+			}
+		})
+	}
     
     func addQuestion(_ question: Question) {
         questions.append(question)

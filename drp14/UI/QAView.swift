@@ -71,8 +71,10 @@ struct QAView: View {
 								$0.getQuestion().localizedCaseInsensitiveContains(searchText)
 									|| $0.getTags().joined(separator: " ").localizedCaseInsensitiveContains(searchText)
 									|| searchText == ""
-					}, id: \.self) { searchQuestion in
-						QuestionRowView(question: searchQuestion).environmentObject(questionStore)
+					}, id: \.id) { searchQuestion in
+						NavigationLink(destination: PostView(question: searchQuestion).environmentObject(questionStore), label: {
+							QuestionRowView(question: searchQuestion)
+						})
 					}
 				}
 				.listStyle(InsetListStyle())
@@ -94,15 +96,10 @@ struct QAView: View {
 								 dismissButton: .cancel())
 				})
 				.accessibility(identifier: "questions list")
+				.onAppear(perform: {
+					questionStore.retrieveQuestionsFromDB()
+				})
 			}
-			.onAppear(perform: {
-				print("-------------")
-				print("Appearing again")
-				for question in questionStore.questions {
-					print("This question has \(question.getAnswers().count) answers.")
-				}
-				print("-------------")
-			})
 		}
     }
 }

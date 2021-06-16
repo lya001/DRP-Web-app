@@ -12,20 +12,18 @@ struct QuestionRowView: View {
     var question: Question
     
     var body: some View {
-        NavigationLink(destination: PostView(question: question), label: {
-            VStack {
-                HStack {
-                    Text(question.getQuestion())
-                        .font(.title)
-                    Spacer()
-                }
-                HStack {
-                    Text(getTimeString(question.getTime()))
-                    Spacer()
-                }
-            }
-            .padding()
-        })
+		VStack {
+			HStack {
+				Text(question.getQuestion())
+					.font(.title)
+				Spacer()
+			}
+			HStack {
+				Text(getTimeString(question.getTime()))
+				Spacer()
+			}
+		}
+		.padding()
     }
     
     func getTimeString(_ time: Date) -> String {
