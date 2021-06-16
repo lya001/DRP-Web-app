@@ -23,7 +23,14 @@ struct PostView: View {
 	@State var answer = ""
 	
 	init(question: Question) {
+		
+		print("________")
+		print("It seems like the data is updated, but WHY IS THE VIEW NOT UPDTAED???")
+		print(question)
+		
 		self._question = State(initialValue: question)
+		print(self.question)
+		print("--------")
 		UITextView.appearance().backgroundColor = .clear
 		UIScrollView.appearance().keyboardDismissMode = .onDrag
 	}
@@ -80,26 +87,24 @@ struct PostView: View {
 						.padding(.leading)
 					Spacer()
 				}
-				HStack {
-					if question.getAnswers().count == 0 {
+				if question.getAnswers().count == 0 {
+					HStack {
+						Text(noAnswerString)
+							.padding()
+							.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
+							.cornerRadius(10)
+							.padding()
+						Spacer()
+					}
+				} else {
+					ForEach(question.getAnswers(), id: \.self) { answer in
 						HStack {
-							Text(noAnswerString)
+							Text(answer)
 								.padding()
 								.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
 								.cornerRadius(10)
 								.padding()
 							Spacer()
-						}
-					} else {
-						ForEach(question.getAnswers(), id: \.self) { answer in
-							HStack {
-								Text(answer)
-									.padding()
-									.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
-									.cornerRadius(10)
-									.padding()
-								Spacer()
-							}
 						}
 					}
 				}
@@ -172,19 +177,6 @@ struct PostView: View {
 				}
             }
 			.navigationTitle("Post")
-			.onDisappear(perform: {
-				print("==============")
-				print("Cmae here")
-				questionStore.update(question: question)
-				print("But not here")
-				for question in questionStore.questions {
-					print("before leaving, question has \(question.getAnswers().count)")
-				}
-				print("==============")
-			})
-			.onAppear(perform: {
-				print(question.getAnswers().count)
-			})
         }
     }
     

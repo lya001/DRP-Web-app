@@ -46,7 +46,11 @@ struct Question: Equatable, Identifiable, Hashable {
 	}
 	
 	static func ==(lhs: Question, rhs: Question) -> Bool {
-		return lhs.id == rhs.id
+		return lhs.id == rhs.id && lhs.getQuestion() == rhs.getQuestion()
+	}
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
 	}
 	
 	mutating func update(question: String) {
@@ -55,8 +59,8 @@ struct Question: Equatable, Identifiable, Hashable {
 	
 	mutating func add(answer: String) {
 		if answer != "" {
+			Database.database().reference().child("questions/\(id.uuidString)/answers/\(answers.count)").setValue(answer)
 			self.answers.append(answer)
-			Database.database().reference().child("questions/\(id.uuidString)/anwers/answer_\(answers.count)").setValue(answer)
 		}
 	}
 	
