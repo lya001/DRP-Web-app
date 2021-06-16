@@ -8,34 +8,9 @@
 import SwiftUI
 import Firebase
 
-let mostRecentPosts: QuestionStore = QuestionStore()
-var dbRef: DatabaseReference! = Database.database().reference()
-var recentPosts = Database.database().reference().child("questions").observe(.value, with: { (snapshot) -> Void in
-    if snapshot.exists() {
-        
-        print(snapshot)
-        
-        let array: NSArray = snapshot.children.allObjects as NSArray
-        var question: String
-        var detail: String
-        var time: Date
-        
-        for child in array {
-            let snap = child as! DataSnapshot
-            if snap.value is NSDictionary {
-                let data: NSDictionary = snap.value as! NSDictionary
-                question = data.value(forKey: "question") as! String
-                detail = data.value(forKey: "detail") as! String
-                time = data.value(forKey: "time") as! Date
-                mostRecentPosts.add(question: question, withDetail: detail, atTime: time)
-            }
-        }
-    }
-})
-
 struct MainView: View {
     
-    @StateObject var questionStore = mostRecentPosts
+    @StateObject var questionStore = QuestionStore()
     @State private var loggedIn = false
     
     var body: some View {
