@@ -45,7 +45,7 @@ struct Question: Equatable, Identifiable, Hashable {
 	}
 	
 	static func ==(lhs: Question, rhs: Question) -> Bool {
-		return lhs.question == rhs.question
+		return lhs.id == rhs.id
 	}
 	
 	mutating func update(question: String) {
