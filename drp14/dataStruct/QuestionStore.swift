@@ -22,7 +22,9 @@ class QuestionStore: ObservableObject {
                 var question: String
                 var detail: String
                 var time: Date
-                
+				
+				self.questions = []
+				
                 for child in array {
                     let snap = child as! DataSnapshot
                     if snap.value is NSDictionary {

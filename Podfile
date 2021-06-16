@@ -26,10 +26,14 @@ target 'drp14' do
   target 'drp14Tests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Database'
   end
 
   target 'drp14UITests' do
     # Pods for testing
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Database'
   end
 
 end
