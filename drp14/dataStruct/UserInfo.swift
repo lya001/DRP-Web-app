@@ -27,7 +27,7 @@ struct UserInfo: Equatable, Identifiable, Hashable {
     }
     
     func writeToDB() {
-        Database.database().reference().child("userInfo/\(id.uuidString)").setValue([
+        Database.database().reference().child("users/\(id.uuidString)").setValue([
             "userName": username,
             "password": password
         ])

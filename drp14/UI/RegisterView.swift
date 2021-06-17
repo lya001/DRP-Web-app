@@ -12,12 +12,14 @@ import Firebase
 struct RegisterView: View {
     
     @Environment(\.presentationMode) var presentation
+    var dbRef: DatabaseReference! = Database.database().reference()
     
     @Binding var loggedIn: Bool
     @State private var userName = ""
     @State private var password = ""
     @State private var confirmedPassword = ""
     @State private var alertConfirmedPassword = false
+    @State private var existedUsername = false
     
     var body: some View {
         VStack {
@@ -39,21 +41,32 @@ struct RegisterView: View {
                            .padding()
 
             Button(action: {
-                if (password == confirmedPassword) {
-                    Database.database().reference().child("users/\(UUID().uuidString)").setValue([
-                        "userName": userName,
-                        "password": password
-                    ])
-                    loggedIn = true
-                    presentation.wrappedValue.dismiss()
-                } else {
-                    alertConfirmedPassword = true
-                }
+                dbRef.child("users").queryOrdered(byChild: "userName")
+                    .queryEqual(toValue: userName)
+                    .observeSingleEvent(of: .value) { (snapshot) -> Void in
+                        if snapshot.exists() {
+                            existedUsername = true
+                        } else if (password == confirmedPassword) {
+                            dbRef.child("users/\(UUID().uuidString)").setValue([
+                                "userName": userName,
+                                "password": password
+                            ])
+                            loggedIn = true
+                            presentation.wrappedValue.dismiss()
+                        } else {
+                            alertConfirmedPassword = true
+                        }
+                    }
             }, label: {
                 HStack {
                     Text("Register")
                         .font(.headline)
                         .foregroundColor(Color.blue)
+                        .alert(isPresented: $existedUsername, content: {
+                            return Alert(title: Text("Warning"),
+                                         message: Text("User name already exists"),
+                                         dismissButton: .cancel())
+                        })
                         .alert(isPresented: $alertConfirmedPassword, content: {
                             return Alert(title: Text("Warning"),
                                          message: Text("Confirmed password is not the same as the password. You must enter the same password twice"),
