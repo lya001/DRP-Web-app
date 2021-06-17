@@ -28,7 +28,7 @@ class QuestionsListUITests: XCTestCase {
 		
 		let questionList = app.tables["questions list"]
 		let prevCount = questionList.cells.count
-		app.buttons["Add Question"].tap()
+		app.buttons["Add question"].tap()
 		app.buttons["Cancel"].tap()
 		XCTAssertEqual(questionList.cells.count - prevCount, 0, "No question should be able to be added when the user did not log in.")
 	}
@@ -43,7 +43,7 @@ class QuestionsListUITests: XCTestCase {
 		app.buttons["LOG IN"].tap()
 		app.buttons["Log in"].tap()
 		app.buttons["Posts"].tap()
-		app.buttons["Add Question"].tap()
+		app.buttons["Add question"].tap()
 		while !app.buttons["Ask question"].exists {
 			app.swipeUp()
 		}
