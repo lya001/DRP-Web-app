@@ -87,7 +87,7 @@ struct QAView: View {
 							alertPresent = true
 						}
 					}, label: {
-						Text("Add Question")
+						Text("Add question")
 					})
 				})
 				.alert(isPresented: $alertPresent, content: {

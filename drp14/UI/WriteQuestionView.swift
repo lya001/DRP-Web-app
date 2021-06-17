@@ -68,7 +68,7 @@ struct WriteQuestionView: View {
 						   addTagViewPresented = true
 					   }, label: {
 						Spacer()
-						Text("add tag +")
+						Text("Add tag +")
 							.padding(.all, 10.0)
 							.overlay(
 								RoundedRectangle(cornerRadius: 8)

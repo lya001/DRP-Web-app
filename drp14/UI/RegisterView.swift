@@ -33,7 +33,7 @@ struct RegisterView: View {
                 .background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
                 .cornerRadius(10)
                 .padding()
-            SecureField("Confirmed Password", text: $confirmedPassword)
+            SecureField("Confirmed password", text: $confirmedPassword)
                            .padding()
                            .background(Color(UIColor.lightGray
                                                .withAlphaComponent(0.4)))
