@@ -46,7 +46,6 @@ struct RegisterView: View {
                     .observeSingleEvent(of: .value) { (snapshot) -> Void in
                         if snapshot.exists() {
                             existedUsername = true
-                            print("existed user name")
                         } else if (password == confirmedPassword) {
                             dbRef.child("users/\(UUID().uuidString)").setValue([
                                 "userName": userName,
