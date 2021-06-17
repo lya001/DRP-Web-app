@@ -46,6 +46,7 @@ struct RegisterView: View {
                     .observeSingleEvent(of: .value) { (snapshot) -> Void in
                         if snapshot.exists() {
                             existedUsername = true
+                            print("existed user name")
                         } else if (password == confirmedPassword) {
                             dbRef.child("users/\(UUID().uuidString)").setValue([
                                 "userName": userName,
@@ -64,16 +65,16 @@ struct RegisterView: View {
                         .foregroundColor(Color.blue)
                         .alert(isPresented: $existedUsername, content: {
                             return Alert(title: Text("Warning"),
-                                         message: Text("User name already exists"),
+                                         message: Text("User name \"" + userName + "\" already exists"),
                                          dismissButton: .cancel())
                         })
+                    Image(systemName: "return")
+                        .font(Font.title.weight(.bold))
                         .alert(isPresented: $alertConfirmedPassword, content: {
                             return Alert(title: Text("Warning"),
                                          message: Text("Confirmed password is not the same as the password. You must enter the same password twice"),
                                          dismissButton: .cancel())
                         })
-                    Image(systemName: "return")
-                        .font(Font.title.weight(.bold))
                 }
                 .padding(.all, 20.0)
                 .overlay(
