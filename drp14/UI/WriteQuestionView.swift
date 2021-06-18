@@ -45,7 +45,7 @@ struct WriteQuestionView: View {
 				
 				HStack {
 					Text("Details/Description")
-						.font(.title)
+						.font(.body)
 						.padding(.top)
 						.padding(.leading)
 					Spacer()

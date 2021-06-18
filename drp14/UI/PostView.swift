@@ -55,7 +55,7 @@ struct PostView: View {
 				}
                 HStack {
                     Text("Details/Description")
-                        .font(.title)
+                        .font(.body)
                         .padding(.leading)
                     Spacer()
                 }
@@ -69,7 +69,7 @@ struct PostView: View {
 				}
 				HStack {
 					Text("Tags")
-						.font(.title)
+						.font(.body)
 						.padding(.leading)
 					Spacer()
 				}

@@ -21,11 +21,25 @@ struct LoginView: View {
 	
     var body: some View {
 		VStack {
+            HStack {
+                Text("User name")
+                    .font(.body)
+                    .padding(.top)
+                    .padding(.leading)
+                Spacer()
+            }
 			TextField("User name", text: $userName)
 				.padding()
 				.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
 				.cornerRadius(10)
 				.padding()
+            HStack {
+                Text("Password")
+                    .font(.body)
+                    .padding(.top)
+                    .padding(.leading)
+                Spacer()
+            }
 			SecureField("Password", text: $password)
 				.padding()
 				.background(Color(UIColor.lightGray.withAlphaComponent(0.4)))
