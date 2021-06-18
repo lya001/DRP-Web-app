@@ -20,6 +20,12 @@ struct MainView: View {
                 .tabItem {
                     Label("Posts", systemImage: "bubble.middle.bottom.fill")
                 }
+            HouseView(loggedIn: $loggedIn)
+                .tabItem { Label("House", systemImage: "house.fill") }
+            ExperienceView(loggedIn: $loggedIn)
+                .tabItem {
+                    Label("Experience", systemImage: "square.and.pencil")
+                }
             UserView(loggedIn: $loggedIn)
                 .tabItem {
                     Label("User", systemImage: "person.circle.fill")

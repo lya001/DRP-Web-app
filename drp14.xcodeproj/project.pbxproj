@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		36181AF20BA60E32288523B3 /* Pods_drp14.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BE134F5110497407628240 /* Pods_drp14.framework */; };
+		633A208E267C85FA006C380A /* HouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633A208D267C85F9006C380A /* HouseView.swift */; };
+		633A208F267C85FA006C380A /* HouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633A208D267C85F9006C380A /* HouseView.swift */; };
+		633A2091267C8890006C380A /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633A2090267C8890006C380A /* ExperienceView.swift */; };
+		633A2092267C8890006C380A /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633A2090267C8890006C380A /* ExperienceView.swift */; };
 		633E907C2673580500CD693F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E907B2673580500CD693F /* UserInfo.swift */; };
 		633E907D2673580500CD693F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E907B2673580500CD693F /* UserInfo.swift */; };
 		68E305922671FAB900FBC9B1 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E305912671FAB900FBC9B1 /* RegisterView.swift */; };
@@ -63,6 +67,8 @@
 		3A8B903AFA2E2A192659E849 /* Pods_drp14_drp14UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_drp14_drp14UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		455A978D8A0DDDC8DAAC6BA1 /* Pods-drp14Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drp14Tests.debug.xcconfig"; path = "Target Support Files/Pods-drp14Tests/Pods-drp14Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5128D1819391F2B72F6D5FC7 /* Pods-drp14-drp14UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drp14-drp14UITests.debug.xcconfig"; path = "Target Support Files/Pods-drp14-drp14UITests/Pods-drp14-drp14UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		633A208D267C85F9006C380A /* HouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseView.swift; sourceTree = "<group>"; };
+		633A2090267C8890006C380A /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceView.swift; sourceTree = "<group>"; };
 		633E907B2673580500CD693F /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		68E305912671FAB900FBC9B1 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		68E3059426722E9C00FBC9B1 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 				B91C7C7E2668DFCB002111E3 /* QAView.swift */,
 				B91C7C832668DFE1002111E3 /* UserView.swift */,
 				B91C7CB7266910B0002111E3 /* QuestionRowView.swift */,
+				633A208D267C85F9006C380A /* HouseView.swift */,
+				633A2090267C8890006C380A /* ExperienceView.swift */,
 				B91DEB6C266F86B100465ADF /* LoginView.swift */,
 				B91DEB80266F8DFF00465ADF /* WriteQuestionView.swift */,
 				68E305912671FAB900FBC9B1 /* RegisterView.swift */,
@@ -543,6 +551,7 @@
 				B9B73C242668D2BA00A1FD4A /* MainView.swift in Sources */,
 				68E305922671FAB900FBC9B1 /* RegisterView.swift in Sources */,
 				B9B73C222668D2BA00A1FD4A /* drp14App.swift in Sources */,
+				633A2091267C8890006C380A /* ExperienceView.swift in Sources */,
 				B91C7C892668E73C002111E3 /* Question.swift in Sources */,
 				633E907C2673580500CD693F /* UserInfo.swift in Sources */,
 				B91C7CB8266910B0002111E3 /* QuestionRowView.swift in Sources */,
@@ -551,6 +560,7 @@
 				B97922002677EDEE00CDF00B /* AddTagView.swift in Sources */,
 				B91DEB6D266F86B200465ADF /* LoginView.swift in Sources */,
 				B91C7C842668DFE1002111E3 /* UserView.swift in Sources */,
+				633A208E267C85FA006C380A /* HouseView.swift in Sources */,
 				B91DEB81266F8DFF00465ADF /* WriteQuestionView.swift in Sources */,
 				68E3059526722E9C00FBC9B1 /* PostView.swift in Sources */,
 			);
@@ -575,10 +585,12 @@
 				68E3059626722E9C00FBC9B1 /* PostView.swift in Sources */,
 				B91DEB82266F8DFF00465ADF /* WriteQuestionView.swift in Sources */,
 				B91C7CC626691D45002111E3 /* QuestionStore.swift in Sources */,
+				633A208F267C85FA006C380A /* HouseView.swift in Sources */,
 				B97922042677FDD500CDF00B /* AddTagView.swift in Sources */,
 				B9B73C3F2668D2BD00A1FD4A /* QuestionsListUITests.swift in Sources */,
 				68E305932671FAB900FBC9B1 /* RegisterView.swift in Sources */,
 				B91DEB86266F8E1000465ADF /* LoginView.swift in Sources */,
+				633A2092267C8890006C380A /* ExperienceView.swift in Sources */,
 				B91C7CD126691FD0002111E3 /* Question.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
