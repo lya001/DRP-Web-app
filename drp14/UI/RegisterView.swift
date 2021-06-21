@@ -15,6 +15,7 @@ struct RegisterView: View {
     var dbRef: DatabaseReference! = Database.database().reference()
     
     @Binding var loggedIn: Bool
+    @Binding var currentUser: String
     @State private var userName = ""
     @State private var password = ""
     @State private var confirmedPassword = ""
@@ -112,7 +113,7 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(loggedIn: .constant(false))
+        RegisterView(loggedIn: .constant(false), currentUser: .constant(""))
     }
 }
 

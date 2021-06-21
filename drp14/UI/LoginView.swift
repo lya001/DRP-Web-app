@@ -14,6 +14,7 @@ struct LoginView: View {
     var dbRef: DatabaseReference! = Database.database().reference()
 	
 	@Binding var loggedIn: Bool
+    @Binding var currentUser: String
 	@State private var userName = ""
 	@State private var password = ""
     @State private var noUsername = false
@@ -87,6 +88,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-		LoginView(loggedIn: .constant(false))
+        LoginView(loggedIn: .constant(false), currentUser: .constant(""))
     }
 }

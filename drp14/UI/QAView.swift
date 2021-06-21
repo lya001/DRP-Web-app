@@ -16,6 +16,7 @@ struct QAView: View {
 	@State private var searchText = ""
 	@State private var showCancelButton: Bool = false
 	@Binding var loggedIn: Bool
+    @Binding var currentUser: String
 	@State private var alertPresent = false
 	@State private var startAskingQuestion = false
 	
@@ -115,6 +116,6 @@ struct QAView_Previews: PreviewProvider {
 	}
 	
     static var previews: some View {
-		QAView(loggedIn: .constant(false)).environmentObject(questionStore)
+        QAView(loggedIn: .constant(false), currentUser: .constant("")).environmentObject(questionStore)
     }
 }

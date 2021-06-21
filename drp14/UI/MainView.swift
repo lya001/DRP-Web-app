@@ -12,10 +12,11 @@ struct MainView: View {
     
     @StateObject var questionStore = QuestionStore()
     @State private var loggedIn = false
+    @State private var currentUser: String = ""
     
     var body: some View {
         TabView {
-            QAView(loggedIn: $loggedIn)
+            QAView(loggedIn: $loggedIn, currentUser: $currentUser)
                 .environmentObject(questionStore)
                 .tabItem {
                     Label("Posts", systemImage: "bubble.middle.bottom.fill")
@@ -26,7 +27,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Experience", systemImage: "square.and.pencil")
                 }
-            UserView(loggedIn: $loggedIn)
+            UserView(loggedIn: $loggedIn, currentUser: $currentUser)
                 .tabItem {
                     Label("User", systemImage: "person.circle.fill")
                 }
