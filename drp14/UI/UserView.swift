@@ -25,7 +25,7 @@ struct UserView: View {
 									.frame(width: geo.size.width / 8,
 										   height: geo.size.width / 8,
 										   alignment: .center)
-								Text("User 1").font(.title)
+								Text(currentUser).font(.title)
 							}
 							.padding()
 							Spacer()
@@ -48,6 +48,7 @@ struct UserView: View {
 							Spacer()
 							Button(action: {
 								loggedIn = false
+                                currentUser = ""
 							}, label: {
 								Text("Log out")
 									.font(.title)
@@ -108,6 +109,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(loggedIn: .constant(true), currentUser: .constant(""))
+        UserView(loggedIn: .constant(true), currentUser: .constant("User 1"))
     }
 }

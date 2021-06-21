@@ -74,6 +74,7 @@ struct RegisterView: View {
                                 "password": password
                             ])
                             loggedIn = true
+                            currentUser = userName
                             presentation.wrappedValue.dismiss()
                         } else {
                             alertConfirmedPassword = true

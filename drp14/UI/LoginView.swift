@@ -53,6 +53,7 @@ struct LoginView: View {
                         if snapshot.exists() {
                             
                                 loggedIn = true
+                                currentUser = userName
                                 presentation.wrappedValue.dismiss()
                            
                         } else {
