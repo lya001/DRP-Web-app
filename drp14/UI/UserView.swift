@@ -10,6 +10,7 @@ import SwiftUI
 struct UserView: View {
 	
 	@Binding var loggedIn: Bool
+    @Binding var currentUser: String
 	
     var body: some View {
 		NavigationView {
@@ -24,7 +25,7 @@ struct UserView: View {
 									.frame(width: geo.size.width / 8,
 										   height: geo.size.width / 8,
 										   alignment: .center)
-								Text("User 1").font(.title)
+								Text(currentUser).font(.title)
 							}
 							.padding()
 							Spacer()
@@ -47,6 +48,7 @@ struct UserView: View {
 							Spacer()
 							Button(action: {
 								loggedIn = false
+                                currentUser = ""
 							}, label: {
 								Text("Log out")
 									.font(.title)
@@ -62,7 +64,7 @@ struct UserView: View {
 			else {
 				VStack {
 					NavigationLink(
-						destination: LoginView(loggedIn: $loggedIn),
+                        destination: LoginView(loggedIn: $loggedIn, currentUser: $currentUser),
 						label: {
 							HStack {
 								Text("LOG IN")
@@ -81,7 +83,7 @@ struct UserView: View {
 						.padding()
 					
                     NavigationLink(
-                        destination: RegisterView(loggedIn: $loggedIn),
+                        destination: RegisterView(loggedIn: $loggedIn, currentUser: $currentUser),
                         label: {
                             HStack {
                                 Text("REGISTER")
@@ -107,6 +109,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-		UserView(loggedIn: .constant(true))
+        UserView(loggedIn: .constant(true), currentUser: .constant("User 1"))
     }
 }
