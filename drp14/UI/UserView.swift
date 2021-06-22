@@ -32,30 +32,19 @@ struct UserView: View {
 						}
 						
 						Section.init {
-							NavigationLink(
-								destination: Text("My questions list's interface"),
-								label: {
-									Text("My questions")
-								})
-							NavigationLink(
-								destination: Text("My answers list's interface"),
-								label: {
-									Text("My answers")
-								})
-						}
-						
-						HStack {
-							Spacer()
-							Button(action: {
-								loggedIn = false
-                                currentUser = ""
-							}, label: {
-								Text("Log out")
-									.font(.title)
-									.foregroundColor(.red)
-							})
-							Spacer()
-						}
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    loggedIn = false
+                                    currentUser = ""
+                                }, label: {
+                                    Text("Log out")
+                                        .font(.title)
+                                        .foregroundColor(.red)
+                                })
+                                Spacer()
+                            }
+                        }
 					}
 					.listStyle(InsetGroupedListStyle())
 					.navigationTitle("Account")
