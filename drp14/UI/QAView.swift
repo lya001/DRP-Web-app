@@ -73,7 +73,7 @@ struct QAView: View {
 									|| $0.getTags().joined(separator: " ").localizedCaseInsensitiveContains(searchText)
 									|| searchText == ""
 					}, id: \.id) { searchQuestion in
-						NavigationLink(destination: PostView(question: searchQuestion).environmentObject(questionStore), label: {
+                        NavigationLink(destination: PostView(question: searchQuestion, loggedIn: loggedIn).environmentObject(questionStore), label: {
 							QuestionRowView(question: searchQuestion)
 						})
 					}

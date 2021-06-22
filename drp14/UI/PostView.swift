@@ -10,6 +10,7 @@ import SwiftUI
 struct PostView: View {
     
     @State var question: Question
+    @State var loggedIn: Bool
     
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
@@ -21,14 +22,18 @@ struct PostView: View {
 	@Environment(\.presentationMode) var presentation
 	@State var answeringQuestion = false
 	@State var answer = ""
+    @State private var attemptToAnswer = false
 	
-	init(question: Question) {
+    init(question: Question, loggedIn: Bool) {
 		
 		print("________")
 		print("It seems like the data is updated, but WHY IS THE VIEW NOT UPDTAED???")
 		print(question)
 		
 		self._question = State(initialValue: question)
+        
+        self._loggedIn = State(initialValue: loggedIn)
+        
 		print(self.question)
 		print("--------")
 		UITextView.appearance().backgroundColor = .clear
@@ -131,12 +136,20 @@ struct PostView: View {
 					
 					if !answeringQuestion {
 						Button(action: {
-							answeringQuestion = true
+                            if loggedIn {
+                                answeringQuestion = true
+                            } else {
+                                attemptToAnswer = true
+                            }
 						}, label: {
 							HStack {
 								Text("Answer question")
 									.font(.headline)
 									.foregroundColor(Color.blue)
+                                    .alert(isPresented: $attemptToAnswer, content: {
+                                        return Alert(title: Text("Warning"),
+                                           message: Text("Log in to answer questions!"),
+                                           dismissButton: .cancel())})
 								Image(systemName: "keyboard")
 									.font(Font.title.weight(.bold))
 									.foregroundColor(.blue)
@@ -182,7 +195,7 @@ struct PostView: View {
     
     struct PostView_Previews: PreviewProvider {
         static var previews: some View {
-            PostView(question: Question("random"))
+            PostView(question: Question("random"), loggedIn: true)
         }
     }
 }
